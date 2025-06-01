@@ -1,0 +1,21 @@
+./start.sh
+http://localhost:8080/install/
+
+localhost:8080/coverage/index.html
+
+docker exec -it dolibarr_web /bin/bash
+
+
+cd /var/www/html/
+
+
+
+
+
+phpunit -c test/phpunit/phpunittest.xml test/phpunit/HolidayTest.php --coverage-html coverage/
+
+phpunit -c test/phpunit/phpunittest.xml test/phpunit/ExpenseReportTest.php --coverage-html coverage/
+
+
+
+

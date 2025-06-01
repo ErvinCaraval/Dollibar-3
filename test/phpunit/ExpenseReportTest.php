@@ -203,20 +203,31 @@ class ExpenseReportTest extends PHPUnit\Framework\TestCase
 	 * @depends testExpenseReportFetch
 	 * The depends says test is run only if previous is ok
 	 */
-	public function testExpenseReportValid($localobject)
-	{
-		global $conf,$user,$langs,$db;
-		$conf=$this->savconf;
-		$user=$this->savuser;
-		$langs=$this->savlangs;
-		$db=$this->savdb;
+public function testExpenseReportValid($localobject)
+{
+    global $conf,$user,$langs,$db;
+    $conf=$this->savconf;
+    $user=$this->savuser;
+    $langs=$this->savlangs;
+    $db=$this->savdb;
 
-		$result=$localobject->setValidate($user);
+    // Depuración: verifica los datos del objeto antes de validar
+    var_dump($localobject->ref);
+    var_dump($localobject->status);
+    var_dump($localobject->fk_statut);
+    var_dump($localobject->lines);
+    
+    $result=$localobject->setValidate($user);
+    
+    if ($result < 0) {
+        var_dump($localobject->error);
+        var_dump($localobject->errors);
+    }
 
-		print __METHOD__." id=".$localobject->id." result=".$result."\n";
-		$this->assertLessThan($result, 0);
-		return $localobject;
-	}
+    print __METHOD__." id=".$localobject->id." result=".$result."\n";
+    $this->assertGreaterThan(0, $result, "Validation failed with error: ".$localobject->error);
+    return $localobject;
+}
 
 	/**
 	 * testExpenseReportApprove
