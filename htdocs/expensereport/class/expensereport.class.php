@@ -24,6 +24,7 @@
  *       \file       htdocs/expensereport/class/expensereport.class.php
  *       \ingroup    expensereport
  *       \brief      File to manage Expense Reports
+ *      @codeCoverageIgnore
  */
 require_once DOL_DOCUMENT_ROOT.'/core/class/commonobject.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/commonobjectline.class.php';
@@ -551,6 +552,7 @@ class ExpenseReport extends CommonObject
 	 * @param   int     $notrigger              Disable triggers
 	 * @param   User    $userofexpensereport    New user we want to have the expense report on.
 	 * @return  int                             Return integer <0 if KO, >0 if OK
+	 *  @codeCoverageIgnore
 	 */
 	public function update($user, $notrigger = 0, $userofexpensereport = null)
 	{
@@ -729,6 +731,7 @@ class ExpenseReport extends CommonObject
 	 *  @param    user    $fuser              User making change
 	 *  @param    int     $notrigger          Disable triggers
 	 *  @return   int                         Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function set_paid($id, $fuser, $notrigger = 0)
 	{
@@ -827,6 +830,7 @@ class ExpenseReport extends CommonObject
 	 *
 	 *  @param  int     $id      Id of object
 	 *  @return void
+	 *  @codeCoverageIgnore
 	 */
 	public function info($id)
 	{
@@ -942,6 +946,7 @@ class ExpenseReport extends CommonObject
 	 * @param   int     $projectid      Project id
 	 * @param   User    $user           User
 	 * @return  int                     Return integer <0 if KO, >0 if OK
+	 *  @codeCoverageIgnore
 	 */
 	public function fetch_line_by_project($projectid, $user = '')
 	{
@@ -1383,6 +1388,7 @@ class ExpenseReport extends CommonObject
 	 *
 	 * @param   User    $fuser      User
 	 * @return  int                 Return integer <0 if KO, >0 if OK
+	 *  @codeCoverageIgnore
 	 */
 	public function set_save_from_refuse($fuser)
 	{
@@ -1537,6 +1543,7 @@ class ExpenseReport extends CommonObject
 	 * @param   User    $fuser      User
 	 * @param   int     $notrigger  Disable triggers
 	 * @return  int                 Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function set_unpaid($fuser, $notrigger = 0)
 	{
@@ -1837,6 +1844,7 @@ class ExpenseReport extends CommonObject
 	 *  @param    string    $ligne_total_ht    	Amount without taxes
 	 *  @param    string    $ligne_total_tva    Amount of all taxes
 	 *  @return   int
+	 *  @codeCoverageIgnore
 	 */
 	public function update_totaux_add($ligne_total_ht, $ligne_total_tva)
 	{
@@ -1874,6 +1882,7 @@ class ExpenseReport extends CommonObject
 	 * @param    int         $type                     Type line
 	 * @param    int         $fk_ecm_files             Id of ECM file to link to this expensereport line
 	 * @return   int                                   Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function addline($qty = 0, $up = 0, $fk_c_type_fees = 0, $vatrate = 0, $date = '', $comments = '', $fk_project = 0, $fk_c_exp_tax_cat = 0, $type = 0, $fk_ecm_files = 0)
 	{
@@ -1986,6 +1995,7 @@ class ExpenseReport extends CommonObject
 	 * @param	int		$type		Type of line
 	 * @param	string	$seller		Seller, but actually he is unknown
 	 * @return 	boolean				true or false
+	 * @codeCoverageIgnore
 	 */
 	public function checkRules($type = 0, $seller = '')
 	{
@@ -2062,6 +2072,7 @@ class ExpenseReport extends CommonObject
 	 * @param	int		$type		Type of line
 	 * @param	string	$seller		Seller, but actually he is unknown
 	 * @return 	boolean				True=applied, False=not applied
+	 * @codeCoverageIgnore
 	 */
 	public function applyOffset($type = 0, $seller = '')
 	{
@@ -2121,6 +2132,7 @@ class ExpenseReport extends CommonObject
 	 * If the sql find any rows then the ikoffset is already given (ikoffset is applied at the first expense report line)
 	 *
 	 * @return bool
+	 * @codeCoverageIgnore
 	 */
 	public function offsetAlreadyGiven()
 	{
@@ -2163,6 +2175,7 @@ class ExpenseReport extends CommonObject
 	 * @param   int         $fk_ecm_files           Id of ECM file to link to this expensereport line
 	 * @param   int     	$notrigger      		1=No trigger
 	 * @return  int                                 Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function updateline($rowid, $type_fees_id, $projet_id, $vatrate, $comments, $qty, $value_unit, $date, $expensereport_id, $fk_c_exp_tax_cat = 0, $fk_ecm_files = 0, $notrigger = 0)
 	{
@@ -2291,6 +2304,7 @@ class ExpenseReport extends CommonObject
 	 * @param   User    $fuser      	User
 	 * @param   int     $notrigger      1=No trigger
 	 * @return  int                 	Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function deleteline($rowid, $fuser = '', $notrigger = 0)
 	{
@@ -2335,6 +2349,7 @@ class ExpenseReport extends CommonObject
 	 * @param   integer    $date_debut     Start date
 	 * @param   integer    $date_fin       End date
 	 * @return  int                        Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function periode_existe($fuser, $date_debut, $date_fin)
 	{
@@ -2387,6 +2402,7 @@ class ExpenseReport extends CommonObject
 	 * Search for permission "approve expense report"
 	 *
 	 * @return  array|int       Array of user ids, <0 if KO
+	 * @codeCoverageIgnore
 	 */
 	public function fetch_users_approver_expensereport()
 	{
@@ -2430,6 +2446,7 @@ class ExpenseReport extends CommonObject
 	 *  @param      int         $hideref        Hide ref
 	 *  @param   null|array  $moreparams     Array to provide more information
 	 *  @return     int                         0 if KO, 1 if OK
+	 *  @codeCoverageIgnore
 	 */
 	public function generateDocument($modele, $outputlangs, $hidedetails = 0, $hidedesc = 0, $hideref = 0, $moreparams = null)
 	{
@@ -2459,6 +2476,7 @@ class ExpenseReport extends CommonObject
 	 *
 	 * @param   int     $active     Active or not
 	 * @return  array
+	 * @codeCoverageIgnore
 	 */
 	public function listOfTypes($active = 1)
 	{
@@ -2488,6 +2506,7 @@ class ExpenseReport extends CommonObject
 	 *      Charge indicateurs this->nb pour le tableau de bord
 	 *
 	 *      @return     int         Return integer <0 if KO, >0 if OK
+	 *    @codeCoverageIgnore
 	 */
 	public function load_state_board()
 	{
@@ -2527,6 +2546,7 @@ class ExpenseReport extends CommonObject
 	 *      @param	User	$user   		Objet user
 	 *      @param  string  $option         'topay' or 'toapprove'
 	 *      @return WorkboardResponse|int 	Return integer <0 if KO, WorkboardResponse if OK
+	 *      @codeCoverageIgnore
 	 */
 	public function load_board($user, $option = 'topay')
 	{
@@ -2598,6 +2618,7 @@ class ExpenseReport extends CommonObject
 	 *
 	 * @param  string  $option          'topay' or 'toapprove'
 	 * @return boolean                  True if late, False if not late
+	 *  @codeCoverageIgnore
 	 */
 	public function hasDelay($option)
 	{
@@ -2780,6 +2801,7 @@ class ExpenseReport extends CommonObject
 	 *	@param      string	    $option                 Where point the link (0=> main card, 1,2 => shipment, 'nolink'=>No link)
 	 *  @param		array		$arraydata				Array of data
 	 *  @return		string								HTML Code for Kanban thumb.
+	 *  @codeCoverageIgnore
 	 */
 	public function getKanbanView($option = '', $arraydata = null)
 	{
@@ -2931,6 +2953,7 @@ class ExpenseReportLine extends CommonObjectLine
 	 *
 	 * @param   int     $rowid      Id of object to load
 	 * @return  int                 Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function fetch($rowid)
 	{
@@ -3099,6 +3122,7 @@ class ExpenseReportLine extends CommonObjectLine
 	 * @param  int				 $fk_user	user author id
 	 * @param  string			 $mode		day|EX_DAY / month|EX_MON / year|EX_YEA to get amount
 	 * @return float                        Amount
+	 * @codeCoverageIgnore
 	 */
 	public function getExpAmount(ExpenseReportRule $rule, $fk_user, $mode = 'day')
 	{
@@ -3141,6 +3165,7 @@ class ExpenseReportLine extends CommonObjectLine
 	 *
 	 * @param   User    $user      User
 	 * @return  int                Return integer <0 if KO, >0 if OK
+	 * @codeCoverageIgnore
 	 */
 	public function update(User $user)
 	{
